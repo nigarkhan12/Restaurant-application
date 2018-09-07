@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en"  ng-app="qlsApp">
+<head>
+  <title>Restaurant</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.js"></script>	
+  
+</head>
+{% verbatim %} 
+<body>
+<div class="container" ng-controller="ListDashboardCtrl" ng-init="getPartyList()">
+  <div class="col-lg-12 well">
+  <h3 style="text-align: center;">List of Restaurants</h3>
+    <table style="width: 100%">
+    	  <tr>
+    	  	<b><th>Restaurant Name</th></b>
+    	  	<th>Mobile number</th>
+    	  	<th>Location</th>
+    	  </tr>
+          
+          </tr>
+          <tr>
+    	  	<th>Punjabi Dhaba</th>
+    	  	<th>123456789</th>
+    	  	<th>Btm</th>
+    	  </tr>
+          
+          <tr>
+    	  	<th>Salt</th>
+    	  	<th>56789543</th>
+    	  	<th>Forum mall</th>
+    	  </tr>
+           
+         
+          <tr>
+    	  	<th>Punjabi grill</th>
+    	  	<th>0987654321</th>
+    	  	<th>Kormangala</th>
+    	  </tr>
+           
+          
+          <tr>
+    	  	<th>Chatni chang</th>
+    	  	<th>6789543209</th>
+    	  	<th>Silk board</th>
+    	  </tr>
+    	  <tr>
+    	  	<th>Punjabi grill</th>
+    	  	<th>0987654321</th>
+    	  	<th>Kormangala</th>
+    	  </tr>
+           
+          
+          <tr>
+    	  	<th>Chatni chang</th>
+    	  	<th>6789543209</th>
+    	  	<th>Silk board</th>
+    	  </tr>
+    	  <tr>
+    	  	<th>Punjabi grill</th>
+    	  	<th>0987654321</th>
+    	  	<th>Kormangala</th>
+    	  </tr>
+           
+          
+          <tr>
+    	  	<th>Chatni chang</th>
+    	  	<th>6789543209</th>
+    	  	<th>Silk board</th>
+    	  </tr>
+         
+         
+    </table>         
+  
+  </div>
+</body>{% endverbatim %} 
+</html>
+<button type="button" class="btn btn-danger pull-right"><a href="{% url 'logout' %}">logout</a></button>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
